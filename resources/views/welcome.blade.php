@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -9,8 +9,8 @@
     <title>Document</title>
 </head>
 
-<body style="background-color:grey">
-    <div class="m-4 p-8" style="background-color: white">
+<body>
+    <div class="container mx-auto m-4 p-8" style="background-color: white">
         <h1 class="uppercase text-center">Bienvenue sur mon blog</h1>
         <p>
             <a href="{{ url('/posts') }}" class="uppercase text-center">Visiter Mon Blog</a>

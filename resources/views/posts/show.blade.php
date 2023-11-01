@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <div class="container mx-auto m-4 p-8" style="background-color: white">
     <!-- resources/views/posts/show.blade.php -->
     <h1>{{ $post->title }}</h1>
 
@@ -23,6 +24,7 @@
     </form>
 
     <a href="{{ route('posts.index') }}" class="btn btn-primary">Back to all posts</a>
+    </div>
 </body>
 
 </html>

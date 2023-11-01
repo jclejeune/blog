@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <!-- resources/views/posts/edit.blade.php -->
+    <div class="container mx-auto m-4 p-8" style="background-color: white">
     <h1>Edit Post</h1>
 
     @if ($errors->any())
@@ -39,6 +39,7 @@
 
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
+    </div>
 </body>
 
 </html>

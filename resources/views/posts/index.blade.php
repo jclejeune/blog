@@ -12,10 +12,9 @@
 <body>
 
     <!-- resources/views/posts/index.blade.php -->
-    <h1>All Posts</h1>
-    <p>
-        <a href="{{ url('/posts/create') }}">Blog</a>
-    </p>
+    <div class="container mx-auto" style="background-color: white">
+    <h1><span>All Posts</span> - <span><a href="{{ url('/posts/create') }}">Blog</a></span> </h1>
+
 
     @if (session('success'))
     <div class="alert alert-success">
@@ -26,9 +25,9 @@
     <table class="table">
         <thead>
             <tr>
-                <th class="col">Title</th>
-                <th class="col">Content</th>
-                <th class="col">Actions</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -37,13 +36,14 @@
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->content }}</td>
                 <td>
-                    <a href="{{ route('posts.show', $post) }}" class="btn btn-primary">View</a>
-                    <a href="{{ route('posts.edit', $post) }}" class="btn btn-secondary">Edit</a>
-                    <form action="{{ route('posts.destroy', $post) }}" method="POST" style="display: inline-block">
+                    <a href="{{ route('posts.show', $post) }}" class="col-span-2">View</a>
+                    <span> - </span>
+                    <a href="{{ route('posts.edit', $post) }}" class="col-span-2">Edit</a>
+                    <span> - </span>
+                    <form action="{{ route('posts.destroy', $post) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger"
-                            onclick="return confirm('Are you sure?')">Delete</button>
+                        <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
                     </form>
                 </td>
             </tr>
@@ -52,6 +52,7 @@
     </table>
 
     {{ $posts->links() }}
+    </div>
 </body>
 
 </html>
