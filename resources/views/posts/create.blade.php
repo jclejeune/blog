@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>Document</title>
 </head>
 
-<body>
-    <div class="container mx-auto m-4 p-8" style="background-color: white">
+<body class="flex ">
+    <div style="background-color: white" class="p-4 card" style="margin: 20vw; width:60">
         <h1>Create Post</h1>
 
         @if ($errors->any())
@@ -23,22 +23,34 @@
         </div>
         @endif
 
-        <form action="{{ route('posts.store') }}" method="POST">
-            @csrf
+        <form action="{{ route('posts.store') }}" method="POST"  class="pb-4">
+            <div>
+                @csrf
 
-            <div class="form-group">
-                <label for="title"><h3>Title</h3></label>
-                <input type="text" name="title" id="title" class="form-control" rows="4" required>
+                <div class="d-block row mx-2">
+                    <label for="title" class="form-label">
+                        <h3>Title</h3>
+                    </label>
+                    <input type="text" name="title" id="title" rows="4" class="form-control" required>
+                </div>
+
+                <div class="d-block row flex mx-2">
+                    <label for="content" class="form-label">
+                        <h3>Content</h3>
+                    </label>
+                    <textarea name="content" id="content" rows="4" class="form-control" required></textarea>
+                </div>
+                <div class="d-flex justify-content-around">
+                    <button type="submit" class="d-block btn btn-light m-4" style="width: 18rem;">Créer</button>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label for="content"><h3>Content</h3></label>
-                <textarea name="content" id="content" class="form-control" rows="4" required></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Créer</button>
         </form>
+        <div  class="d-flex justify-content-around">
+            <button class="d-block btn btn-light m-4 text-dark" style="width: 18rem;"><a href="/" >Home</a></button>
+        </div>
+        
     </div>
+
 </body>
 
 </html>
