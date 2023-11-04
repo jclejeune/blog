@@ -13,7 +13,7 @@
     <div class="container">
         <div class="card m-4 pb-4">
             <h1 class="text-center">
-                <a href="{{ url('/posts/create') }}" style="text-decoration:none !important">Nouveau Post</a>
+                <a href="{{ url('/posts/create') }}" style="text-decoration:none !important">Nouveau Post++</a>
             </h1>
 
             @if (session('success'))
@@ -25,40 +25,46 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th style="width: 40vw" scope="col">Title</th>
-                        <th style="width: 40vw" scope="col">Content</th>
-                        <th style="width: 20vw" scope="col">Actions</th>
+                        <th style="width: 40vw" scope="col" class="text-center align-middle">Title</th>
+                        <th style="width: 40vw" scope="col" class="text-center align-middle">Content</th>
+                        <th scope="col" class="text-center align-middle">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($posts as $post)
                     <tr>
-                        <td>{{ $post->title }}</td>
-                        <td>{{ $post->content }}</td>
-                        <td>
-                            <ul class="navbar-nav d-flex mb-3">
-                                <li class="nav-item">
-                                    <a href="{{ route('posts.show', $post) }}">View</a>
+                        <td class="text-center align-middle">{{ $post->title }}</td>
+                        <td class="text-center align-middle">{{ $post->content }}</td>
+                        <td class="d-flex flex-row">
+                            <ul  class="list-group list-group-horizontal">
+                              
+                                <li class="list-group-item">
+                                    <form >
+                                        @csrf
+                                        <button class="btn text-dark"><a href="{{ route('posts.show', $post) }}">View</a></button>
+                                    </form>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('posts.edit', $post) }}">Edit</a>
+                           
+                                <li class="list-group-item">
+                                    <form>
+                                        @csrf
+                                        <button class="btn text-dark"><a href="{{ route('posts.edit', $post) }}">Edit</a></button>
+                                    </form>
                                 </li>
-                                <li class="nav-item">
+                                <li class="list-group-item">
                                     <form action="{{ route('posts.destroy', $post) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                                        <button class="btn text-danger" type="submit" onclick="return confirm('Are you sure?')">Delete</button>
                                     </form>
                                 </li>
                             </ul>
+
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
-            <p>
-                <a href="/">HOME1</a>
-            </p>
         </div>
     </div>
 

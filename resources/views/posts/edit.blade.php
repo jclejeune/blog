@@ -47,7 +47,7 @@
                 </div>
             </form>
             <p>
-                <a href="/">HOME</a>
+                <a href="{{ route('posts.index', $post) }}">Retour</a>
             </p>
         </div>
 

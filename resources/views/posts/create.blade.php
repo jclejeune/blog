@@ -44,11 +44,7 @@
                     <button type="submit" class="d-block btn btn-light m-4" style="width: 18rem;">Créer</button>
                 </div>
             </div>
-        </form>
-        <div  class="d-flex justify-content-around">
-            <button class="d-block btn btn-light m-4 text-dark" style="width: 18rem;"><a href="/" >Home</a></button>
-        </div>
-        
+        </form>        
     </div>
 
 </body>
