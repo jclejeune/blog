@@ -65,6 +65,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="nav navbar text-center align-middle d-flex row">
+                <a href="/">Home</a>
+            </div>
         </div>
     </div>
 

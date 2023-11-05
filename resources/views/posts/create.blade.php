@@ -44,7 +44,10 @@
                     <button type="submit" class="d-block btn btn-light m-4" style="width: 18rem;">Créer</button>
                 </div>
             </div>
-        </form>        
+        </form>
+        <div class="nav navbar text-center align-middle d-flex row">
+            <a href="/">Home</a>
+        </div>        
     </div>
 
 </body>
