@@ -1,14 +1,40 @@
 html, body { max-width: 100%; overflow-x: hidden; }
+
 body{
+    background-color: aliceblue;
+    /*
     background-image: url('/public/img/background.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100vw;
     height: 100vh;
+    */
 }
 
 p{
     text-align: center;
     text-decoration: none;
+}
+
+#map { height: 300px; }
+
+#banner{
+    background-color: rgb(172, 172, 172);
+    background-image: url('/public/img/pexels-yan-krukau-7793999.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 450px;
+}
+
+footer{
+    background-color: rgb(114, 127, 139);
+    /*background-image: url('/public/img/pexels-scott-webb-532568.jpg');*/
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 500px;
 }

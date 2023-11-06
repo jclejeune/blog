@@ -12,8 +12,8 @@
 </head>
 
 <body>
-    <nav class="nav navbar row text-light m-0 p-0" style="background-color: rgba(87, 87, 87, 0.5)">
-        <div class="row w-25 m-0 p-0" x-data="{
+    <nav id="banner" class="text-dark">
+        <div x-data="{
                 date: '',
                 updateDateTime() {
                     moment.locale();
@@ -22,36 +22,63 @@
                     }, 1000);
                 }
             }" x-init="updateDateTime()">
-            <h1 class="text-center" x-text="date"></h1>
+            <span class="fw-bold fs-1" x-text="date"></span>
         </div>
-        <div class="row w-75 m-0 p-0">
-            <a class="m-0 p-0" href="{{ url('/posts') }}">
-                <h1 class="text-center classcm-0 p-0" value="Voir mon blog" >Mon Blog</h1>
+        <div>
+            <a href="{{ url('/posts') }}">
+                <span class="fw-bold fs-4 text-center">Admin</span>
             </a>
         </div>
+        <div class="container row col-md-3 col-xs-12">
+            <a href="{{ url('/posts') }}">Mon Blog</a>
+            <a href="https://www.insersite.org">Insersite</a>
+        </div>
     </nav>
-    <main class="row m-0 p-0" style="background-color: rgba(255, 255, 255, 0.5)">
-        <div class="row col-md-3 col-xs-12 m-0 p-0">
-            <div class="p-4">
-                <ul>
-                    <li><a href="{{ url('/posts') }}">Mon Blog</a></li>
-                    <li><a href="{{ route('posts.index') }}">Retour</a></li>
-                    <li>Menu 3</li>
-                    <li>Menu 4</li>
-                </ul>
+    <div class="d-flex flex-column">
+        <section class="row d-flex justify-content-around" style="background-color: rgba(255, 255, 255, 0.509)">
+            <div class="m-3 p-3 card col-md-3  col-xs-12 ">
+                <p class="text-start">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio provident asperiores minus neque
+                    officiis explicabo ullam nesciunt at nulla. Magni pariatur laborum illo tempore quasi, ea,
+                    obcaecati, ab voluptatem ipsum totam minima illum aliquid porro velit repellat iusto blanditiis.
+                    Voluptates explicabo nobis perferendis alias et ut veniam necessitatibus ad assumenda soluta eius
+                    eveniet impedit obcaecati, minus nulla asperiores ex aperiam reiciendis optio natus autem illum
+                    architecto culpa. Itaque ratione in, vero quia saepe odio molestias alias doloribus? Voluptatum
+                    facere distinctio ducimus libero minima dolor! Error voluptates tempore dolor ratione aperiam, modi
+                    ut dolores temporibus accusantium itaque, velit repellat laboriosam alias?
+                </p>
+            </div>
+
+            <div class=" m-3 p-3 card col-md-4  col-xs-12 ">
+                <p class="text-start">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio provident asperiores minus neque
+                    officiis explicabo ullam nesciunt at nulla. Magni pariatur laborum illo tempore quasi, ea,
+                    obcaecati, ab voluptatem ipsum totam minima illum aliquid porro velit repellat iusto blanditiis.
+                    Voluptates explicabo nobis perferendis alias et ut veniam necessitatibus ad assumenda soluta eius
+                    eveniet impedit obcaecati, minus nulla asperiores ex aperiam reiciendis optio natus autem illum
+                    architecto culpa. Itaque ratione in, vero quia saepe odio molestias alias doloribus? Voluptatum
+                    facere distinctio ducimus libero minima dolor! Error voluptates tempore dolor ratione aperiam, modi
+                    ut dolores temporibus accusantium itaque, velit repellat laboriosam alias?
+                </p>
+            </div>
+        </section>
+
+    </div>
+    <footer class="py-4 mt-4">
+        <div class="row d-flex justify-content-center ">
+            <div class="col-md-6 span-md-3 col-xs-12" style="color: rgb(255, 255, 255)">
+                <h1 class="text-center">Insersite</h1>
+                <p>53 Av Paul Raoult</p>
+                <p>78130 Les Mureaux</p>
             </div>
         </div>
+        <div id="map"></div>
+        <div>
+            <p style="color: rgb(255, 255, 255)">JC @ insersite 2023</p>
+        </div>
 
-        <div class="row col-md-9 col-xs-12 m-0 p-0">
-            <div class="p-4">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni veniam, maiores saepe eveniet accusamus dicta corporis quae quas. Sit, unde optio. Aperiam facilis voluptas similique nihil temporibus! Libero, similique minima!</div>
-       </div>
-        
-
-    </main>
-    <footer class="fixed-bottom" style="margin-top:20vh;background-color: rgb(87, 87, 87, 0.5)">
-        <p class="card-text text-light">JC at insersite 2023</p>
     </footer>
+
 
 </body>
 
