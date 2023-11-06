@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <nav class="nav navbar row text-light" style="background-color: rgba(87, 87, 87, 0.5)">
+    <nav class="nav navbar row text-light m-0 p-0" style="background-color: rgba(87, 87, 87, 0.5)">
         <div class="row w-25 m-0 p-0" x-data="{
                 date: '',
                 updateDateTime() {
@@ -25,8 +25,8 @@
             <h1 class="text-center" x-text="date"></h1>
         </div>
         <div class="row w-75 m-0 p-0">
-            <a href="{{ url('/posts') }}">
-                <h1 class="text-center" value="Voir mon blog" style="color: white;text-decoration: none;">Mon Blog</h1>
+            <a class="m-0 p-0" href="{{ url('/posts') }}">
+                <h1 class="text-center classcm-0 p-0" value="Voir mon blog" >Mon Blog</h1>
             </a>
         </div>
     </nav>
