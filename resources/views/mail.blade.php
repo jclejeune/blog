@@ -27,7 +27,7 @@
             </div>
             <div class="col-md-6 d-flex align-items-start justify-content-around">
                 <span class="col"><a href="{{ url('/') }}">Home</a></span>
-                <span class="col"><a href="{{ url('/mail')}}">Inscription</a></span>
+                <span class="col"><a href="{{ url('/mail') }}">Inscription</a></span>
             </div>
             <div class="col-md-3">
                 <a href="{{ url('/posts') }}">
@@ -41,42 +41,80 @@
                 <h2 class="mx-4 p-4">
                     Pour vous inscrire..
                 </h2>
-                
+
                 <div class="form-group mx-4 p-4">
                     <form action="#" method="post" class="d-flex flex-column">
                         @csrf
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                             Jeune
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                              Entreprise
+                            <input class="form-check-input" type="radio" name="jeune_inscription"
+                                id="jeune_inscription">
+                            <label class="form-check-label" for="jeune_inscription">
+                                Jeune
                             </label>
                         </div>
-                        <label for="prenom">Prénom</label>
-                        <input type="text" name="prenom" id="prenom" class="form-control" required>
-                        <label for="nom">Nom</label>
-                        <input type="text" name="nom" id="nom" class="form-control" required>
-                        <label for="usermail">Email</label>
-                        <input type="email" name="usermail" id="usermail" class="form-control" placeholder="utilisateur@mail.com" value="utilisateur@mail.com">
-                        <label for="age">Age</label>
-                        <input type="number" name="age" id="age" class="form-control" required>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="entreprise_inscription"
+                                id="entreprise_inscription" checked>
+                            <label class="form-check-label" for="entreprise_inscription">
+                                Entreprise
+                            </label>
+                        </div>
 
-                        <label for="from">From:</label>
-                        <input type="email" name="from" id="from" class="form-control" placeholder="missionlocale@example.com" value="missionlocale@example.com" style="inputfield.enabled = false;" readonly>
-                        <label for="to">To:</label>
-                        <input type="email" name="to" id="to" class="form-control" placeholder="utilisateur@mail.com" value="utilisateur@mail.com" style="inputfield.enabled = false;" readonly>
-                        <label for="sujet">Sujet</label>
-                        <input type="text" name="sujet" id="sujet" class="form-control" required>
-                        <label for="body">Body</label>
-                        <textarea name="body" id="body" cols="30" rows="10" class="form-control" required></textarea>
-                        
-                        <button type="submit" class="btn btn-primary mb-2">Envoyer</button>
+                        <div id="formulaire_jeune">
+                            <label for="prenom">Prénom</label>
+                            <input type="text" name="prenom" id="prenom" class="form-control" required>
+                            <label for="nom">Nom</label>
+                            <input type="text" name="nom" id="nom" class="form-control" required>
+                            <label for="usermail">Email</label>
+                            <input type="email" name="usermail" id="usermail" class="form-control"
+                                placeholder="utilisateur@example.com" value="utilisateur@example.com">
+                            <label for="age">Age</label>
+                            <input type="number" name="age" id="age" class="form-control" required>
+                            <label for="from">From:</label>
+                            <input type="email" name="from" id="from" class="form-control"
+                                placeholder="missionlocale@example.com" value="missionlocale@example.com"
+                                style="inputfield.enabled = false;" readonly>
+                            <label for="to">To:</label>
+                            <input type="email" name="to" id="to" class="form-control"
+                                placeholder="utilisateur@example.com" value="utilisateur@example.com"
+                                style="inputfield.enabled = false;" readonly>
+                            <label for="sujet">Sujet</label>
+                            <input type="text" name="sujet" id="sujet" class="form-control" required
+                                placeholder="Inscription" value="Inscription Jeune" style="inputfield.enabled = false;"
+                                readonly>
+                            <label for="body">Body</label>
+                            <textarea name="body" id="body" cols="30" rows="10" class="form-control" required></textarea>
+
+                            <button type="submit" class="btn btn-primary mb-2">Envoyer</button>
+                        </div>
+
+                        <div id="formulaire_entreprise">
+                            <label for="nom">Nom de l'entreprise</label>
+                            <input type="text" name="nom" id="nom" class="form-control" required>
+                            <label for="usermail">Email</label>
+                            <input type="email" name="usermail" id="usermail" class="form-control"
+                                placeholder="entreprise@example.com" value="entreprise@example.com">
+
+                            <label for="from">From:</label>
+                            <input type="email" name="from" id="from" class="form-control"
+                                placeholder="missionlocale@example.com" value="missionlocale@example.com"
+                                style="inputfield.enabled = false;" readonly>
+                            <label for="siret">Siret</label>
+                            <input type="text" name="siret" id="siret" class="form-control" required>
+                            <label for="to">To:</label>
+                            <input type="email" name="to" id="to" class="form-control"
+                                placeholder="entreprise@example.com" value="entreprise@example.com"
+                                style="inputfield.enabled = false;" readonly>
+                            <label for="sujet">Sujet</label>
+                            <input type="text" name="sujet" id="sujet" class="form-control" required
+                                placeholder="Inscription" value="Inscription Jeune"
+                                style="inputfield.enabled = false;" readonly>
+                            <label for="body">Body</label>
+                            <textarea name="body" id="body" cols="30" rows="10" class="form-control" required></textarea>
+                            <button type="submit" class="btn btn-primary mb-2">Envoyer</button>
+                        </div>
                     </form>
+
                 </div>
             </section>
 
@@ -98,8 +136,7 @@
     </div>
 
 
-    <script src="https://smtpjs.com/v3/smtp.js">
-    </script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 </body>
 
 </html>
