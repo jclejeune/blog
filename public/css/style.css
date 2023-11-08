@@ -38,3 +38,10 @@ footer{
     width: 100%;
     height: 500px;
 }
+
+#menu{
+    background-color: rgb(114, 127, 139);
+    a{
+        color: white;;
+    }
+}
