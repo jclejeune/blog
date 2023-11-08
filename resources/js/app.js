@@ -39,3 +39,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 L.marker([48.98992925620837, 1.91373130377852425],{ alt: 'Insersite' }).addTo(map).bindPopup('Venez nous voir!');
+
+//------------------
+
+
+
+

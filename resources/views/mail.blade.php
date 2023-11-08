@@ -43,75 +43,69 @@
                 </h2>
 
                 <div class="form-group mx-4 p-4">
-                    <form action="#" method="post" class="d-flex flex-column">
+                    <form action="" method="" class="d-flex flex-column h-50">
                         @csrf
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="jeune_inscription"
-                                id="jeune_inscription">
-                            <label class="form-check-label" for="jeune_inscription">
-                                Jeune
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="entreprise_inscription"
-                                id="entreprise_inscription" checked>
-                            <label class="form-check-label" for="entreprise_inscription">
-                                Entreprise
-                            </label>
-                        </div>
+                        <label for="Select">Selectionner une catégorie</label>
+                        <div x-data="{ user: 'jeune' }">
+                            <select x-model="user" class="form-control my-1">
+                                <option value="jeune">Public jeune</option>
+                                <option value="entreprise">Entreprises</option>
+                            </select>
 
-                        <div id="formulaire_jeune">
-                            <label for="prenom">Prénom</label>
-                            <input type="text" name="prenom" id="prenom" class="form-control" required>
-                            <label for="nom">Nom</label>
-                            <input type="text" name="nom" id="nom" class="form-control" required>
-                            <label for="usermail">Email</label>
-                            <input type="email" name="usermail" id="usermail" class="form-control"
-                                placeholder="utilisateur@example.com" value="utilisateur@example.com">
-                            <label for="age">Age</label>
-                            <input type="number" name="age" id="age" class="form-control" required>
-                            <label for="from">From:</label>
-                            <input type="email" name="from" id="from" class="form-control"
-                                placeholder="missionlocale@example.com" value="missionlocale@example.com"
-                                style="inputfield.enabled = false;" readonly>
-                            <label for="to">To:</label>
-                            <input type="email" name="to" id="to" class="form-control"
-                                placeholder="utilisateur@example.com" value="utilisateur@example.com"
-                                style="inputfield.enabled = false;" readonly>
-                            <label for="sujet">Sujet</label>
-                            <input type="text" name="sujet" id="sujet" class="form-control" required
-                                placeholder="Inscription" value="Inscription Jeune" style="inputfield.enabled = false;"
-                                readonly>
-                            <label for="body">Body</label>
-                            <textarea name="body" id="body" cols="30" rows="10" class="form-control" required></textarea>
+                            <div id="formulaire_jeune" x-show="user === 'jeune'">
+                                <label for="prenom_j">Prénom</label>
+                                <input type="text" name="prenom_j" id="prenom_j" class="form-control" required>
+                                <label for="nom_j">Nom</label>
+                                <input type="text" name="nom_j" id="nom_j" class="form-control" required>
+                                <label for="age_j">Age</label>
+                                <input type="number" name="age_j" id="age_j" class="form-control" required>
 
-                            <button type="submit" class="btn btn-primary mb-2">Envoyer</button>
-                        </div>
+                                <label for="from_j">From:</label>
+                                <input type="email" name="from_j" id="from_j" class="form-control"
+                                    placeholder="missionlocale@example.com" value="missionlocale@example.com"
+                                    style="inputfield.enabled = false;" readonly>
 
-                        <div id="formulaire_entreprise">
-                            <label for="nom">Nom de l'entreprise</label>
-                            <input type="text" name="nom" id="nom" class="form-control" required>
-                            <label for="usermail">Email</label>
-                            <input type="email" name="usermail" id="usermail" class="form-control"
-                                placeholder="entreprise@example.com" value="entreprise@example.com">
+                                <label for="to_j">To:</label>
+                                <input type="email" name="to_j" id="to_j" class="form-control"
+                                    placeholder="utilisateur@example.com" value="utilisateur@example.com">
 
-                            <label for="from">From:</label>
-                            <input type="email" name="from" id="from" class="form-control"
-                                placeholder="missionlocale@example.com" value="missionlocale@example.com"
-                                style="inputfield.enabled = false;" readonly>
-                            <label for="siret">Siret</label>
-                            <input type="text" name="siret" id="siret" class="form-control" required>
-                            <label for="to">To:</label>
-                            <input type="email" name="to" id="to" class="form-control"
-                                placeholder="entreprise@example.com" value="entreprise@example.com"
-                                style="inputfield.enabled = false;" readonly>
-                            <label for="sujet">Sujet</label>
-                            <input type="text" name="sujet" id="sujet" class="form-control" required
-                                placeholder="Inscription" value="Inscription Jeune"
-                                style="inputfield.enabled = false;" readonly>
-                            <label for="body">Body</label>
-                            <textarea name="body" id="body" cols="30" rows="10" class="form-control" required></textarea>
-                            <button type="submit" class="btn btn-primary mb-2">Envoyer</button>
+                                <label for="sujet_j">Sujet</label>
+                                <input type="text" name="sujet_j" id="sujet_j" class="form-control" required
+                                    placeholder="Inscription" value="Inscription Jeune"
+                                    style="inputfield.enabled = false;" readonly>
+
+                                <label for="body_j">Message</label>
+                                <textarea name="body_j" id="body_j" cols="30" rows="10" class="form-control" required></textarea>
+
+                                <button type="submit" class="btn btn-primary mb-2">Envoyer</button>
+                            </div>
+
+
+                            <div id="formulaire_entreprise" x-show="user === 'entreprise'">
+                                <label for="nom_e">Nom de l'entreprise</label>
+                                <input type="text" name="nom_e" id="nom_e" class="form-control" required>
+                                <label for="siret_e">Siret</label>
+                                <input type="number" name="siret_e" id="siret_e" class="form-control" required>
+
+                                <label for="from_e">From:</label>
+                                <input type="email" name="from_e" id="from_e" class="form-control"
+                                    placeholder="missionlocale@example.com" value="missionlocale@example.com"
+                                    style="inputfield.enabled = false;" readonly>
+
+                                <label for="to_e">To:</label>
+                                <input type="email" name="to_e" id="to_e" class="form-control"
+                                    placeholder="entreprise@example.com" value="entreprise@example.com">
+
+                                <label for="sujet_e">Sujet</label>
+                                <input type="text" name="sujet_e" id="sujet_e" class="form-control" required
+                                    placeholder="Inscription" value="Inscription entreprise"
+                                    style="inputfield.enabled = false;" readonly>
+
+                                <label for="body_e">Message</label>
+                                <textarea name="body_e" id="body_e" cols="30" rows="10" class="form-control" required></textarea>
+                                <button type="submit" class="btn btn-primary mb-2">Envoyer</button>
+                            </div>
+                        
                         </div>
                     </form>
 
@@ -134,7 +128,6 @@
 
         </footer>
     </div>
-
 
     <script src="https://smtpjs.com/v3/smtp.js"></script>
 </body>
