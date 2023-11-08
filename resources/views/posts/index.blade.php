@@ -70,7 +70,7 @@
             </div>
         </div>
     </div>
-
+    <div id="map" style="display: none ! important"></div>
 </body>
 
 </html>
