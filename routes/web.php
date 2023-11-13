@@ -3,11 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\SendMailController;
-
-use App\Mail\GeneralEmail;
 use Illuminate\Support\Facades\Mail;
-
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +32,46 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.
 
 
 
-Route::get('/mail', function () {
-    return view('mail');
+Route::get('/inscription_jeune', function () {
+    return view('inscription_jeune');
+});
+
+Route::get('/inscription_entreprise', function () {
+    return view('inscription_entreprise');
+});
+
+
+
+Route::get('/formulaire', function () {
+    return view('formulaire');
+});
+
+Route::post('/envoyer-email', function () {
+    $destinataire = "jc_insersite@gmx.fr";
+
+    $sujet = request('sujet');
+    $message = request('message');
+    $expediteur = request('expediteur');
+
+    $mail = new PHPMailer(true);
+
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'sandbox.smtp.mailtrap.io';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'abaa854f4b435d';
+        $mail->Password = 'f1b1e0d93bb565';
+        $mail->SMTPSecure = 'TLS';
+        $mail->Port = 2525;
+
+        $mail->setFrom($expediteur);
+        $mail->addAddress($destinataire);
+        $mail->Subject = $sujet;
+        $mail->Body = $message;
+
+        $mail->send();
+        return "L'e-mail a été envoyé avec succès.";
+    } catch (Exception $e) {
+        return "Une erreur s'est produite lors de l'envoi de l'e-mail : " . $mail->ErrorInfo;
+    }
 });

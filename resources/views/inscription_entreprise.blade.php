@@ -36,19 +36,31 @@
         <nav id="banner" class="d-flex align-items-start align-self-center justify-content-around"></nav>
         <div class="d-flex flex-column">
             <section class="row d-flex justify-content-around" style="background-color: rgba(255, 255, 255, 0.509)">
-                <div class="m-3 p-3 card col-md-3  col-xs-12 ">
-                    <p class="text-start">
-                        TEXT DEMO
-                    </p>
-                </div>
-
-                <div class=" m-3 p-3 card col-md-4  col-xs-12 ">
-                    <p class="text-start">
-                        TEXT DEMO
-                    </p>
+                <h2 class="mx-4 p-4">
+                    Inscription Entreprises
+                </h2>
+                <div class="form-group mx-4 p-4">
+                    <div x-data="{ formulaireEntreprise: {}}" x-init="initForm" id="formulaire_Entreprise">
+                        <form @submit.prevent="envoyerFormulaire" class="d-flex flex-column h-50">
+                            @csrf
+    
+                            <label for="nom_e">Nom de l'Entreprise</label>
+                            <input type="text" x-model="formulaireEntreprise.nom" name="nom_e" id="nom_e" class="form-control" required>
+    
+                            <label for="siret_e">Siret</label>
+                            <input type="number" x-model="formulaireEntreprise.siret" name="siret_e" id="siret_e" class="form-control" required>
+    
+                            <label for="to_e">Email de l'Entreprise</label>
+                            <input type="email" x-model="formulaireEntreprise.to" name="to_e" id="to_e" class="form-control" placeholder="utilisateur@example.com" required>
+                    
+                            <label for="body_e">Message</label>
+                            <textarea name="body_e" x-model="formulaireEntreprise.body" id="body_e" cols="30" rows="10" class="form-control"></textarea>                
+                            
+                            <button type="submit" class="btn btn-primary mb-2">Envoyer</button>
+                        </form>
+                    </div>
                 </div>
             </section>
-
         </div>
         <footer class="py-4 mt-4">
             <div class="row d-flex justify-content-center ">
@@ -66,9 +78,35 @@
         </footer>
     </div>
 
+    <script>
+        function initForm() {
+            // Initialisez les champs du formulaire avec des valeurs par défaut si nécessaire
+            this.formulaireEntreprise = {
+                nom: '',
+                siret: '',
+                from: 'missionlocale@example.com',
+                to: '',
+                sujet: 'Inscription Entreprise',
+                body: '',
+            };
+            
+        }
+    
+        function envoyerFormulaire() {
+            // Imprimez les données du formulaire dans la console
+            console.log(JSON.stringify(this.$data.formulaireEntreprise, null, 2));
+            this.$data.formulaireJeune = {
+                nom: '',
+                siret: '',
+                from: 'missionlocale@example.com',
+                to: '',
+                sujet: 'Inscription Entreprise',
+                body: '',
+            };
+        }
 
-    <script src="https://smtpjs.com/v3/smtp.js">
     </script>
+
 </body>
 
 </html>
